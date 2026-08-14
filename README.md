@@ -2,14 +2,10 @@
 
 ## Features
 
-- /start
-- /help
-- /status
-- /homepage
-- /fnnas
-- /portainer
-- /sftpgo
-- /frigate
+/start
+/help
+/status
+/url
 
 ## Docker
 

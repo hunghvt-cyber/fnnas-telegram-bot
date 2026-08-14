@@ -1,18 +1,51 @@
-def format_status(data: dict) -> str:
+def format_status(data):
 
     if not data:
         return "Không có dữ liệu."
 
-    lines = []
+    text = []
 
-    for key, value in data.items():
-        lines.append(f"🔹 {key}")
-        lines.append(value)
-        lines.append("")
+    last = data.get("LAST_UPDATE", "Unknown")
 
-    return "\n".join(lines)
+    text.append("🤖 FnNAS Telegram Bot")
+    text.append("")
+    text.append("🟢 Online")
+    text.append("")
+    text.append(f"🕒 Last Update")
+    text.append(last)
+    text.append("")
+    text.append("📦 Services")
+
+    for key in [
+        "HOMEPAGE",
+        "FNNAS",
+        "PORTAINER",
+        "SFTPGO",
+        "FRIGATE"
+    ]:
+
+        if data.get(key):
+            text.append(f"✅ {key}")
+
+    return "\n".join(text)
 
 
-def format_url(name: str, url: str) -> str:
+def format_urls(data):
 
-    return f"{name}\n{url}"
+    items = [
+        ("🌐 Homepage", "HOMEPAGE"),
+        ("🖥 FnNAS", "FNNAS"),
+        ("📦 Portainer", "PORTAINER"),
+        ("📁 SFTPGo", "SFTPGO"),
+        ("📹 Frigate", "FRIGATE"),
+    ]
+
+    text = []
+
+    for title, key in items:
+
+        text.append(title)
+        text.append(data.get(key, "Không có dữ liệu."))
+        text.append("")
+
+    return "\n".join(text)

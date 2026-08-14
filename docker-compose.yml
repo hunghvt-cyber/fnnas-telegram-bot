@@ -10,8 +10,8 @@ services:
       - .env
 
     volumes:
-      - ./logs:/app/logs
-      - ./data:/app/data
+    - /vol1/Docker/TelegramBot/logs:/app/logs
+    - /vol1/Docker/TelegramBot/data:/app/data
 
     working_dir: /app
 

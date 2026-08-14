@@ -4,7 +4,6 @@
 
 /start
 /help
-/status
 /url
 
 ## Docker

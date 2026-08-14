@@ -7,10 +7,10 @@ services:
     restart: unless-stopped
 
     environment:
-      ALLOWED_USER_ID: "1834853831"
-      BOT_TOKEN: "YOUR_BOT_TOKEN"
-      STATUS_FILE: "/app/data/status.env"
-      LOG_FILE: "/app/logs/bot.log"
+      BOT_TOKEN: ${BOT_TOKEN}
+      ALLOWED_USER_ID: ${ALLOWED_USER_ID}
+      STATUS_FILE: /app/data/status.env
+      LOG_FILE: /app/logs/bot.log
 
     volumes:
       - /vol1/Docker/TelegramBot/data:/app/data

@@ -26,5 +26,7 @@ app.add_handler(CommandHandler("fnnas", fnnas.command))
 app.add_handler(CommandHandler("portainer", portainer.command))
 app.add_handler(CommandHandler("sftpgo", sftpgo.command))
 app.add_handler(CommandHandler("frigate", frigate.command))
+from services.logger import logger
 
+logger.info("FnNAS Telegram Bot started")
 app.run_polling()

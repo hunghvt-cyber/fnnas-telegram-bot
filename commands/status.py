@@ -1,18 +1,12 @@
-from telegram import Update
-from telegram.ext import ContextTypes
-
+from services.auth_guard import check
 from services.status_reader import load_status
+from services.formatter import format_status
 
-async def command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def command(update, context):
 
-    data = load_status()
+    if not await check(update):
+        return
 
-    text = ""
-
-    for k, v in data.items():
-        text += f"{k}\n{v}\n\n"
-
-    if text == "":
-        text = "status.env chưa tồn tại."
-
-    await update.message.reply_text(text)
+    await update.message.reply_text(
+        format_status(load_status())
+    )

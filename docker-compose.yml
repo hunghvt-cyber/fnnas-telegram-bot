@@ -7,11 +7,11 @@ services:
     restart: unless-stopped
 
     env_file:
-      - .env
+      - /vol1/Docker/TelegramBot/.env
 
     volumes:
-      - /vol1/Docker/TelegramBot/logs:/app/logs
       - /vol1/Docker/TelegramBot/data:/app/data
+      - /vol1/Docker/TelegramBot/logs:/app/logs
 
     working_dir: /app
 

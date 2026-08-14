@@ -11,7 +11,7 @@ def format_status(data):
     text.append("")
     text.append("🟢 Online")
     text.append("")
-    text.append(f"🕒 Last Update")
+    text.append("🕒 Last Update")
     text.append(last)
     text.append("")
     text.append("📦 Services")
@@ -20,10 +20,9 @@ def format_status(data):
         "HOMEPAGE",
         "FNNAS",
         "PORTAINER",
-        "SFTPGO",
-        "FRIGATE"
+        "FRIGATE",
+        "CLOUDCOMMANDER"
     ]:
-
         if data.get(key):
             text.append(f"✅ {key}")
 
@@ -36,14 +35,13 @@ def format_urls(data):
         ("🌐 Homepage", "HOMEPAGE"),
         ("🖥 FnNAS", "FNNAS"),
         ("📦 Portainer", "PORTAINER"),
-        ("📁 SFTPGo", "SFTPGO"),
         ("📹 Frigate", "FRIGATE"),
+        ("🗂 Cloud Commander", "CLOUDCOMMANDER"),
     ]
 
     text = []
 
     for title, key in items:
-
         text.append(title)
         text.append(data.get(key, "Không có dữ liệu."))
         text.append("")

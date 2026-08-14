@@ -1,22 +1,17 @@
-from telegram import Update
-from telegram.ext import ContextTypes
+from services.auth_guard import check
 
-async def command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def command(update, context):
 
-    text = """
+    if not await check(update):
+        return
 
-/status
-
-/homepage
-
-/fnnas
-
-/portainer
-
-/sftpgo
-
-/frigate
-
+    await update.message.reply_text(
 """
-
-    await update.message.reply_text(text)
+/status
+/homepage
+/fnnas
+/portainer
+/sftpgo
+/frigate
+"""
+    )

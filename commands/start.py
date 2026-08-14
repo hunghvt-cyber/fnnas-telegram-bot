@@ -1,7 +1,10 @@
-from telegram import Update
-from telegram.ext import ContextTypes
+from services.auth_guard import check
 
-async def command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def command(update, context):
+
+    if not await check(update):
+        return
+
     await update.message.reply_text(
-        "FnNAS Telegram Bot\n\nGõ /help để xem lệnh."
+        "FnNAS Telegram Bot\n\n/help"
     )

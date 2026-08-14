@@ -1,7 +1,5 @@
 # FnNAS Telegram Bot
 
-Telegram Bot for FnNAS
-
 ## Features
 
 - /start
@@ -13,9 +11,39 @@ Telegram Bot for FnNAS
 - /sftpgo
 - /frigate
 
-## Stack
+## Docker
 
-- Python 3.12
-- python-telegram-bot
-- Docker
-- Portainer
+```bash
+docker compose up -d --build
+```
+
+## Environment
+
+Copy
+
+```
+.env.example
+```
+
+to
+
+```
+.env
+```
+
+Fill:
+
+- BOT_TOKEN
+- ALLOWED_USER_ID
+
+## Logs
+
+```
+logs/bot.log
+```
+
+## Status file
+
+```
+data/status.env
+```

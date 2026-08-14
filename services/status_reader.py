@@ -5,22 +5,26 @@ from config.config import STATUS_FILE
 
 def load_status():
 
-    result = {}
+    data = {}
 
     if not os.path.exists(STATUS_FILE):
-        return result
+        return data
 
-    with open(STATUS_FILE, "r") as f:
+    with open(
+        STATUS_FILE,
+        "r",
+        encoding="utf-8"
+    ) as file:
 
-        for line in f:
+        for line in file:
 
             line = line.strip()
 
-            if "=" not in line:
+            if not line or "=" not in line:
                 continue
 
-            k, v = line.split("=", 1)
+            key, value = line.split("=", 1)
 
-            result[k] = v
+            data[key] = value
 
-    return result
+    return data

@@ -1,10 +1,4 @@
-from telegram import Update
-from telegram.ext import ContextTypes
+from services.command_helper import reply_url
 
-from services.status_reader import load_status
-
-async def command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    await update.message.reply_text(
-        load_status().get("SFTPGO", "Không có dữ liệu.")
-    )
+async def command(update, context):
+    await reply_url(update, "SFTPGO", "📁 SFTPGo")

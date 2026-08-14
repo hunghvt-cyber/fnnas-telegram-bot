@@ -20,7 +20,6 @@ async def command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 /start
 /help
-/status
 /url
 """
     )

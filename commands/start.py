@@ -1,10 +1,20 @@
-from services.auth_guard import check
+from telegram import Update
+from telegram.ext import ContextTypes
 
-async def command(update, context):
+from config.auth import is_allowed
+from services.logger import logger
 
-    if not await check(update):
+
+async def command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    user = update.effective_user
+
+    if not is_allowed(user.id):
+        logger.warning(f"Unauthorized: {user.id}")
         return
 
+    logger.info(f"/start - {user.id}")
+
     await update.message.reply_text(
-        "FnNAS Telegram Bot\n\n/help"
+        "🤖 FnNAS Telegram Bot\n\nGõ /help để xem danh sách lệnh."
     )

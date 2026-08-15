@@ -21,7 +21,8 @@ def format_status(data):
         "FNNAS",
         "PORTAINER",
         "FRIGATE",
-        "CLOUDCOMMANDER"
+        "CLOUDCOMMANDER",
+        "INVENTORY"
     ]:
         if data.get(key):
             text.append(f"✅ {key}")
@@ -37,6 +38,7 @@ def format_urls(data):
         ("📦 Portainer", "PORTAINER"),
         ("📹 Frigate", "FRIGATE"),
         ("🗂 Cloud Commander", "CLOUDCOMMANDER"),
+        ("🐳 Docker Inventory", "INVENTORY"),
     ]
 
     text = []

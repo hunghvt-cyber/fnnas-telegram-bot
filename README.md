@@ -5,6 +5,7 @@
 /start
 /help
 /url
+/tapo — Tapo daily maintenance status
 
 ## Docker
 
@@ -14,31 +15,17 @@ docker compose up -d --build
 
 ## Environment
 
-Copy
-
-```
-.env.example
-```
-
-to
-
-```
-.env
-```
-
-Fill:
+Copy `.env.example` to `.env` and fill:
 
 - BOT_TOKEN
 - ALLOWED_USER_ID
 
-## Logs
+## Status files
 
-```
-logs/bot.log
-```
+General FnNAS status:
+`data/status.env`
 
-## Status file
+Tapo daily maintenance status:
+`data/tapo-status.env`
 
-```
-data/status.env
-```
+The Tapo maintenance job writes the compact status contract into the shared TelegramBot data directory. The bot does not perform maintenance or deletion.
